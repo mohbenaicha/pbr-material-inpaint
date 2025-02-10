@@ -148,6 +148,8 @@ class TextureSynthesis:
         )
         base_img.save(os.path.join("output", "albedo" + ".png"))
 
+        image_canny_pil = color_to_canny(base_img)
+
         images["albedo"] = base_img
         
         maps.discard("albedo") # no ned to process it again
