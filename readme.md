@@ -1,9 +1,10 @@
 
 You'll need a workspace of 30-40 GiBs to setup SDXL.
 
-Set up environment:
+1. Set up environment:
 ```apt-get update```
 
+```Python 3.11``` was used , witht his pod version ```runpod/pytorch:2.4.0-py3.11-cuda12.4.1-devel-ubuntu22.04``` (although torch and cuda version will be contained in the new env below)
 
 Cd into workspace
 ```python -m venv ./lora-env && source ./lora-env/bin/activate```
@@ -14,7 +15,7 @@ Git clone this repo
 Setup requirements
 ```pip install -r requirements.txt```
 
-
+2. Run script
 ```cd src```
 
 Run the script
