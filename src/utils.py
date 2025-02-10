@@ -3,7 +3,7 @@ from PIL import Image
 import numpy as np
 import torch, cv2
 from PIL import Image
-from PyQt5.QtGui import QImage
+# from PyQt5.QtGui import QImage
 
 
 def resize_to_target(image, target_size=(1024, 1024)):
@@ -121,25 +121,25 @@ negativePrompts = {
 }
 
 
-def qimage_to_pil(qimage) -> Image:
-    """Convert QImage to PIL Image"""
-    # Convert QImage to a format compatible with PIL
-    qimage = qimage.convertToFormat(QImage.Format_RGBA8888)
+# def qimage_to_pil(qimage) -> Image:
+#     """Convert QImage to PIL Image"""
+#     # Convert QImage to a format compatible with PIL
+#     qimage = qimage.convertToFormat(QImage.Format_RGBA8888)
 
-    # Extract byte data from QImage
-    byte_data = qimage.bits().asstring(qimage.byteCount())
+#     # Extract byte data from QImage
+#     byte_data = qimage.bits().asstring(qimage.byteCount())
 
-    # Create PIL Image from byte data
-    pil_image = Image.frombytes("RGBA", (qimage.width(), qimage.height()), byte_data)
-    return pil_image
+#     # Create PIL Image from byte data
+#     pil_image = Image.frombytes("RGBA", (qimage.width(), qimage.height()), byte_data)
+#     return pil_image
 
 
-def pil_to_qimage(pil_image) -> QImage:
-    """Convert PIL Image to QImage"""
-    pil_image = pil_image.convert("RGBA")
-    data = pil_image.tobytes("raw", "RGBA")
-    qimage = QImage(data, pil_image.width, pil_image.height, QImage.Format_RGBA8888)
-    return qimage
+# def pil_to_qimage(pil_image) -> QImage:
+#     """Convert PIL Image to QImage"""
+#     pil_image = pil_image.convert("RGBA")
+#     data = pil_image.tobytes("raw", "RGBA")
+#     qimage = QImage(data, pil_image.width, pil_image.height, QImage.Format_RGBA8888)
+#     return qimage
 
 def generate_random_seed():
      # Set random seed for reproducibility
