@@ -10,6 +10,7 @@ import numpy as np
 import os, cv2, torch
 from PIL import Image
 import argparse
+import time
 
 
 class TextureSynthesis:
@@ -104,12 +105,15 @@ class TextureSynthesis:
     ) -> dict:
         images = {}
         prompts = update_user_prompt(prompt)
+        if not os.path.exists("output"):
+            os.makedirs("output")
         print("Processing maps: ", maps, "\n\n")
 
         original_img = user_image.convert("RGB").resize((1024, 1024))
         mask = user_mask.convert("L").resize((1024, 1024))
         canny_mask = mask_to_canny(mask)  # grey scale mask
         canny_mask.save(str(os.path.join("output", "canny_mask.png")))
+        time.sleep(1)
 
         base_img = self.pipe_controlnet(
             prompt=prompts["albedo"],
